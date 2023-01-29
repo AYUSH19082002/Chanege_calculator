@@ -1,0 +1,84 @@
+import java.util.*;
+public class Main
+{
+    public void change(int change, int arr[]){
+        int res[]=new int[6];
+        int n=0,count=0,inc=0;
+        int max=arr[0];
+        int s=change;
+        while(s!=0 ){
+            inc=0;
+            while(s>=max){
+                s=s-max;
+                inc++;
+            }
+            res[n]=inc;
+            inc=0;
+            n++;
+            if(n<4){
+              max=arr[n];  
+            }
+            else{
+                break;
+            }
+        }
+        for(int i=0;i<4;i++)
+        {
+            System.out.print(arr[i]+"x"+res[i]+" ");
+        }
+    }
+    public void usc(int change)
+    {
+        Scanner sc=new Scanner(System.in);
+        int arr[]=new int[4];
+        arr[0]=25;
+        arr[1]=10;
+        arr[2]=5;
+        arr[3]=1;
+        change(change,arr);
+    }
+    public void pc(int change)
+    {
+        Scanner sc=new Scanner(System.in);
+        int arr[]=new int[6];
+        arr[0]=50;
+        arr[1]=20;
+        arr[2]=10;
+        arr[3]=5;
+        arr[4]=2;
+        arr[5]=1;
+        change(change,arr);
+    }
+    public void nc(int change)
+    {
+        Scanner sc=new Scanner(System.in);
+        int arr[]=new int[4];
+        arr[0]=20;
+        arr[1]=10;
+        arr[2]=5;
+        arr[3]=1;
+        change(change,arr);
+    }
+	public static void main(String[] args) {
+	    Scanner sc=new Scanner(System.in);
+	    Main m=new Main();
+	    System.out.println("Enter the change:");
+	    int f=sc.nextInt();
+	    System.out.println("Change in 1.USD\n2.Pound\n3.Norwegian Krone");
+	    int ch=sc.nextInt();
+	    switch(ch){
+	        case 1:
+	            m.usc(f);
+	            break;
+	        case 2:
+	            m.pc(f);
+	            break;
+	        case 3:
+	            m.nc(f);
+	            break;
+	        default:
+	            System.out.println("Choose the correct Option");
+	            break;
+	    }
+	}
+}
